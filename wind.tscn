@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://270seumodi40"]
+
+[ext_resource type="Script" uid="uid://b3prritld741p" path="res://scripts/wind.gd" id="1_p3bod"]
+
+[node name="Wind" type="Node2D"]
+script = ExtResource("1_p3bod")
+
+[node name="Right" type="Button" parent="."]
+offset_left = 24.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 16.0
+text = "right"
+
+[node name="Up" type="Button" parent="."]
+offset_left = -32.0
+offset_top = -96.0
+offset_right = 24.0
+offset_bottom = -41.0
+text = "up"
+
+[node name="Left" type="Button" parent="."]
+offset_left = -88.0
+offset_top = -40.0
+offset_right = -32.0
+offset_bottom = 16.0
+text = "left"
+
+[node name="Down" type="Button" parent="."]
+offset_left = -32.0
+offset_top = 16.0
+offset_right = 24.0
+offset_bottom = 72.0
+text = "down"
+
+[node name="Up-Right" type="Button" parent="."]
+offset_left = 24.0
+offset_top = -96.0
+offset_right = 80.0
+offset_bottom = -40.0
+text = "up
+right"
+
+[node name="Up-Left" type="Button" parent="."]
+offset_left = -88.0
+offset_top = -96.0
+offset_right = -32.0
+offset_bottom = -40.0
+text = "up
+left"
+
+[node name="Down-Right" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 72.0
+text = "down
+right"
+
+[node name="Down-Left" type="Button" parent="."]
+offset_left = -88.0
+offset_top = 16.0
+offset_right = -32.0
+offset_bottom = 72.0
+text = "down
+left"
+
+[connection signal="button_up" from="Right" to="." method="_on_right_button_up"]
+[connection signal="button_up" from="Up" to="." method="_on_up_button_up"]
+[connection signal="button_up" from="Left" to="." method="_on_left_button_up"]
+[connection signal="button_up" from="Down" to="." method="_on_down_button_up"]
+[connection signal="button_up" from="Up-Right" to="." method="_on_up_right_button_up"]
+[connection signal="button_up" from="Up-Left" to="." method="_on_up_left_button_up"]
+[connection signal="button_up" from="Down-Right" to="." method="_on_down_right_button_up"]
+[connection signal="button_up" from="Down-Left" to="." method="_on_down_left_button_up"]

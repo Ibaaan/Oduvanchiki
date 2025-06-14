@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq0ebb2woqtf"]
+
+[ext_resource type="Texture2D" uid="uid://b5ll8tckr4wy3" path="res://icon.svg" id="1_3t0h4"]
+[ext_resource type="Script" uid="uid://do2ydagxibx88" path="res://scripts/interactive_tile_set.gd" id="1_t7yk0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t0h4"]
+size = Vector2(128, 128)
+
+[node name="InteractiveTileSet" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_t7yk0")
+
+[node name="default_sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_3t0h4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3t0h4")
+
+[node name="hover_sprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.996078, 0.65098, 1)
+texture = ExtResource("1_3t0h4")
+
+[node name="selected_sprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0.192157, 1)
+texture = ExtResource("1_3t0h4")
+
+[node name="flower_sprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.0941176, 1, 0, 1)
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("1_3t0h4")
+
+[node name="seed_sprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("1_3t0h4")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

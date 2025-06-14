@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://8qxxlrvbu824"]
+
+[ext_resource type="Script" uid="uid://j8gnk0r4a1gs" path="res://scripts/level_script.gd" id="1_1n30v"]
+[ext_resource type="Texture2D" uid="uid://b5ll8tckr4wy3" path="res://icon.svg" id="1_7yhko"]
+[ext_resource type="PackedScene" uid="uid://cq0ebb2woqtf" path="res://InteractiveTileSet.tscn" id="2_1n30v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
+texture = ExtResource("1_7yhko")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+0:4/size_in_atlas = Vector2i(4, 4)
+0:4/0 = 0
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_35kre"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_1n30v")
+
+[node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_1n30v")
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = SubResource("TileSet_35kre")
+format = 2
+layer_0/tile_data = PackedInt32Array(196611, 262144, 0, 196613, 262144, 0, 196615, 262144, 0, 196617, 262144, 0, 196619, 262144, 0, 327683, 262144, 0, 327685, 262144, 0, 327687, 262144, 0, 327689, 262144, 0, 327691, 262144, 0)
+
+[node name="InteractiveTileSet" parent="." instance=ExtResource("2_1n30v")]
+visible = false
+
+[connection signal="flower_pressed" from="InteractiveTileSet" to="." method="_on_interactive_tile_set_flower_pressed"]
