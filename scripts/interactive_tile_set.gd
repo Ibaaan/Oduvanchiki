@@ -19,8 +19,8 @@ func _ready():
 	seed_sprite.hide()
 
 func _process(delta):
-	if Input.is_action_just_released("mouse_click") and is_mouse_inside:
-		print("Wow, a left mouse click", position/128)
+	if Input.is_action_just_released("mouse_click") and is_mouse_inside and StateManager.is_state_flower():
+		print(StateManager.state, position/128)
 
 		selected_sprite.show()
 		default_sprite.hide()
@@ -33,13 +33,13 @@ func _process(delta):
 		flower_pressed.emit(position/128)
 
 func _on_mouse_entered() -> void:
-	if not is_selected:
+	if not is_selected and StateManager.is_state_flower():
 		is_mouse_inside = true
 		default_sprite.hide()
 		hover_sprite.show()
 
 func _on_mouse_exited() -> void:
-	if not is_selected:
+	if not is_selected and StateManager.is_state_flower():
 		is_mouse_inside = false
 		default_sprite.show()
 		hover_sprite.hide()

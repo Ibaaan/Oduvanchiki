@@ -1,22 +1,20 @@
 extends Node2D
 
-enum gameState{
-	PLACE_FLOWER,
-	CHOOSE_WIND_DIRECTION
-}
-
-var state := gameState.PLACE_FLOWER
-
 @onready var base_level : = $BaseLevel
-@onready var wind : = $Wind
 
 
 func _on_wind_wind_direction(direction: Vector2) -> void:
-	print(direction)
-	base_level.place_seeds(direction)
-	state = gameState.PLACE_FLOWER
+	if StateManager.is_state_wind():
+		print(direction)
+		base_level.place_seeds(direction)
+		StateManager.change_state_to_flower()
+		
+	if base_level.is_fulled():
+		print("URA POBEDA")
 
 
-func _on_chosen_tile() -> void:
+func _on_base_level_flower_pressed() -> void:
+	if base_level.is_fulled():
+		print("URA POBEDA")
 	
-	state = gameState.CHOOSE_WIND_DIRECTION
+	#StateManager.change_state_to_wind()
