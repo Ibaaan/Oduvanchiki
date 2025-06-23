@@ -1,6 +1,6 @@
 extends Node2D
 
-signal flower_pressed()	
+signal change_state_to_dir()	
 
 enum Tile{
 	WALL,
@@ -50,7 +50,7 @@ func get_tiles() -> Dictionary:
 func _on_flower_pressed(coords:Vector2) -> void:
 	grid[coords.y][coords.x] = Tile.FLOWER
 	#print(grid)
-	flower_pressed.emit()
+	change_state_to_dir.emit()
 
 func place_seeds(direction:Vector2):
 	
@@ -86,15 +86,3 @@ func print_grid():
 			res += str(grid[x][y]) + " "
 		print(res)
 	print()
-
-
-func is_fulled():
-	var len_grid := len(grid)
-	
-	for x in range(len_grid):
-		var len_grid_x := len(grid[x]) 
-		for y in range(len_grid_x):
-			if grid[y][x] == Tile.EMPTY:
-				print(grid[y][x])
-				return false
-	return true

@@ -13,5 +13,5 @@ position = Vector2(367, 85)
 [node name="Wind" parent="." instance=ExtResource("3_hr5et")]
 position = Vector2(212, 115)
 
-[connection signal="flower_pressed" from="BaseLevel" to="." method="_on_base_level_flower_pressed"]
+[connection signal="change_state_to_dir" from="BaseLevel" to="." method="_on_chosen_tile"]
 [connection signal="wind_direction" from="Wind" to="." method="_on_wind_wind_direction"]
