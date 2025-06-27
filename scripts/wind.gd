@@ -33,3 +33,9 @@ func _on_down_right_button_up() -> void:
 
 func _on_down_left_button_up() -> void:
 	wind_direction.emit(Vector2(-1, 1))
+
+
+
+func _process(delta: float) -> void:
+	#should work like a slide, but with mouse
+	pass

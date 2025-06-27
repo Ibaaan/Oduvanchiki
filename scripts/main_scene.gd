@@ -17,4 +17,4 @@ func _on_base_level_flower_pressed() -> void:
 	if base_level.is_fulled():
 		print("URA POBEDA")
 	
-	#StateManager.change_state_to_wind()
+	StateManager.change_state_to_wind()

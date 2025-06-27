@@ -34,6 +34,7 @@ func _ready() -> void:
 		for y in range(len(grid[x])):
 			if grid[y][x] == Tile.EMPTY:
 				var tile := interactive_tile_tscn.instantiate()
+				tile.set_color(y + x)
 				var v = Vector2(x, y)
 				tile.global_position = v * 128
 				add_child(tile)
