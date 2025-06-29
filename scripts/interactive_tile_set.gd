@@ -39,13 +39,13 @@ func _process(delta):
 func _on_mouse_entered() -> void:
 	if not is_selected and StateManager.is_state_flower():
 		is_mouse_inside = true
-		hide_default()
+		#hide_default()
 		hover_sprite.show()
 
 func _on_mouse_exited() -> void:
 	if not is_selected and StateManager.is_state_flower():
 		is_mouse_inside = false
-		show_default()
+		#show_default()
 		hover_sprite.hide()
 
 func show_seed():
