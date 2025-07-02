@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://bi83njh2riivg"]
 
 [ext_resource type="Script" uid="uid://ivyw1m78t6n1" path="res://scripts/main_scene.gd" id="1_g4qto"]
-[ext_resource type="PackedScene" uid="uid://8qxxlrvbu824" path="res://base_level.tscn" id="2_g4qto"]
-[ext_resource type="PackedScene" uid="uid://270seumodi40" path="res://wind.tscn" id="3_hr5et"]
+[ext_resource type="PackedScene" uid="uid://8qxxlrvbu824" path="res://scenes/base_level.tscn" id="2_g4qto"]
+[ext_resource type="PackedScene" uid="uid://270seumodi40" path="res://scenes/wind.tscn" id="3_hr5et"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_g4qto")
 
 [node name="BaseLevel" parent="." instance=ExtResource("2_g4qto")]
+visible = false
 position = Vector2(367, 85)
 
 [node name="Wind" parent="." instance=ExtResource("3_hr5et")]

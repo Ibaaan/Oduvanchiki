@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8phgm1aqbp6"]
+
+[ext_resource type="Script" uid="uid://28qwik3l5ui6" path="res://scripts/seeds.gd" id="1_htn50"]
+[ext_resource type="Material" uid="uid://m5ubr5njarr" path="res://shaders/smoother_pixel.tres" id="2_rk6je"]
+[ext_resource type="Texture2D" uid="uid://cm7ubk14va4p8" path="res://sprites/seed_tile.png" id="3_1imuv"]
+[ext_resource type="Texture2D" uid="uid://cvgpwib61dswo" path="res://sprites/grass_dark_tile_v1.png" id="3_rk6je"]
+
+[node name="Seeds" type="Node2D"]
+script = ExtResource("1_htn50")
+metadata/_edit_group_ = true
+
+[node name="default_sprite1" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 2
+material = ExtResource("2_rk6je")
+scale = Vector2(4.267, 4.267)
+texture = ExtResource("3_rk6je")
+
+[node name="seed_sprite1" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+texture_filter = 2
+material = ExtResource("2_rk6je")
+position = Vector2(-39, -17)
+rotation = 1.64934
+scale = Vector2(4.827, 4.827)
+texture = ExtResource("3_1imuv")
+
+[node name="seed_sprite2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+texture_filter = 2
+material = ExtResource("2_rk6je")
+position = Vector2(44, 27)
+rotation = 5.7177
+scale = Vector2(4.827, 4.827)
+texture = ExtResource("3_1imuv")
+
+[node name="seed_sprite3" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+texture_filter = 2
+material = ExtResource("2_rk6je")
+position = Vector2(8, 4)
+rotation = 1.64934
+scale = Vector2(4.827, 4.827)
+texture = ExtResource("3_1imuv")
+
+[node name="seed_sprite4" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+texture_filter = 2
+material = ExtResource("2_rk6je")
+position = Vector2(-29, 39)
+rotation = 5.00037
+scale = Vector2(4.827, 4.827)
+texture = ExtResource("3_1imuv")
+
+[node name="seed_sprite5" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.556643, 0.233059, 0.0438032, 1)
+texture_filter = 2
+material = ExtResource("2_rk6je")
+position = Vector2(22, -45)
+rotation = -4.09454
+scale = Vector2(4.827, 4.827)
+texture = ExtResource("3_1imuv")

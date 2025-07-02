@@ -7,7 +7,7 @@ signal flower_pressed(coords:Vector2)
 @onready var hover_sprite := $hover_sprite
 @onready var selected_sprite := $selected_sprite
 @onready var flower_sprite := $flower_sprite
-@onready var seed_sprite := $seed_sprite
+@onready var seed_sprite := $seeds
 
 var is_mouse_inside := false
 var is_selected := false
@@ -23,18 +23,21 @@ func _ready() -> void:
 
 func _process(delta):
 	if Input.is_action_just_released("mouse_click") and is_mouse_inside and StateManager.is_state_flower():
-		print(StateManager.state, position/128)
+		print("AUY",StateManager.state, position/128)
 
 		#selected_sprite.show()
-		show_default()
-		hover_sprite.hide()
-		seed_sprite.hide()
-		flower_sprite.show()
-
+		show_flower()
+		
 		is_selected = true
 		is_mouse_inside = false
-
+		
 		flower_pressed.emit(position/128)
+		
+func show_flower():
+	show_default()
+	hover_sprite.hide()
+	seed_sprite.hide()
+	flower_sprite.show()
 
 func _on_mouse_entered() -> void:
 	if not is_selected and StateManager.is_state_flower():
@@ -66,3 +69,11 @@ func show_default():
 func hide_default():
 		default_sprite2.hide()
 		default_sprite1.hide()
+
+func print_status():
+	print("default_sprite1.is_visible_in_tree()", default_sprite1.is_visible_in_tree())
+	print("default_sprite2.is_visible_in_tree()", default_sprite2.is_visible_in_tree())
+	print("hover_sprite.is_visible_in_tree()", hover_sprite.is_visible_in_tree())
+	print("selected_sprite.is_visible_in_tree()", selected_sprite.is_visible_in_tree())
+	print("flower_sprite.is_visible_in_tree()", flower_sprite.is_visible_in_tree())
+	print("seed_sprite.is_visible_in_tree()", seed_sprite.is_visible_in_tree())

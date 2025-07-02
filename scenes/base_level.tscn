@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://j8gnk0r4a1gs" path="res://scripts/level_script.gd" id="1_1n30v"]
 [ext_resource type="Texture2D" uid="uid://b5ll8tckr4wy3" path="res://icon.svg" id="1_7yhko"]
-[ext_resource type="PackedScene" uid="uid://cq0ebb2woqtf" path="res://InteractiveTileSet.tscn" id="2_1n30v"]
+[ext_resource type="PackedScene" uid="uid://cq0ebb2woqtf" path="res://scenes/InteractiveTileSet.tscn" id="2_1n30v"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1n30v"]
 texture = ExtResource("1_7yhko")

@@ -9,26 +9,19 @@ enum Tile{
 	SEED
 }
 
-@onready var tile_map :TileMap = $TileMap
+#@onready var tile_map :TileMap = $TileMap
 # @onready var interactive_tile := $InteractiveTileSet
 
-var interactive_tile_tscn := preload("res://InteractiveTileSet.tscn")
+var interactive_tile_tscn := preload("res://scenes/InteractiveTileSet.tscn")
+var wall_tile_tscn := preload("res://scenes/wall.tscn")
+
 var grid = Array()
 var tiles:Dictionary
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var width := 5
-	var height := 5
-	grid.resize(height)
-	for i in range(height):
-		grid[i]=Array()
-		grid[i].resize(width)
-		for j in range(width):
-			grid[i][j] = Tile.EMPTY
+func set_grid_by_level(level:int):
 	
-	grid[0][0] = Tile.WALL
-	
+	grid = HcLevels.give_level(level)
+	print(grid)
 	
 	for x in range(len(grid)):
 		for y in range(len(grid[x])):
@@ -40,17 +33,26 @@ func _ready() -> void:
 				add_child(tile)
 				tiles[v] = tile
 				tile.connect("flower_pressed", _on_flower_pressed)
-	
-	
-func get_grid():
-	return grid
+			else:
+				var tile := wall_tile_tscn.instantiate()
+				var v = Vector2(x, y)
+				tile.global_position = v * 128
+				add_child(tile)
+				tiles[v] = tile
 
 func get_tiles() -> Dictionary:
 	return tiles
 
 func _on_flower_pressed(coords:Vector2) -> void:
 	grid[coords.y][coords.x] = Tile.FLOWER
-	#print(grid)
+	
+	# Not the best
+	var len_grid := len(grid)
+	for x in range(len_grid):
+		var len_grid_x := len(grid[x]) 
+		for y in range(len_grid_x):
+			if grid[y][x] == Tile.FLOWER:
+				tiles[Vector2(x, y)].show_flower()
 	flower_pressed.emit()
 
 func place_seeds(direction:Vector2):
